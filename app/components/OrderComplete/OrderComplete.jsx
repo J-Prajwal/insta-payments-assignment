@@ -10,8 +10,6 @@ import { PAYMENT_METHOD } from "@/app/constants";
 const OrderComplete = () => {
   const paymentDetails = useStore((state) => state.paymentDetails);
   const deliveryDetails = useStore((state) => state.deliveryDetails);
-
-  console.log({ paymentDetails, deliveryDetails });
   return (
     <div className={styles.mainWrapper}>
       <div className={styles.greetingSection}>
@@ -83,12 +81,20 @@ const OrderComplete = () => {
         <div className={styles.orderDetailsCardWrapper}>
           <h4 className={styles.heading}>Payment Method</h4>
           <div className={styles.orderDetailsCard}>
+          <h4 className={styles.heading} style={{textTransform: 'uppercase'}}>
+              {paymentDetails?.paymentMethod}
+          </h4>
             {paymentDetails?.paymentMethod === PAYMENT_METHOD.UPI ? (
-              <Image height={50} width={50} src={Upi} alt='logo' />
+              <>
+                <Image height={50} width={50} src={Upi} alt='logo' />
+                <p>UPI ID: {paymentDetails?.upiId}</p>
+              </>
             ) : paymentDetails?.paymentMethod === PAYMENT_METHOD.CARD ? (
               <>
-                <Image height={50} width={50} src={Rupay} alt='logo' />
                 <Image height={50} width={50} src={Visa} alt='logo' />
+                <p style={{margin: 0}}> {paymentDetails?.cardDetails?.nameOnCard} </p>
+                <p style={{margin: 0}}> {paymentDetails?.cardDetails?.cardNumber} </p>
+                <p style={{margin: 0}}> {paymentDetails?.cardDetails?.expiryDate} </p>
               </>
             ) : (
               <h4>Cash On Delivery</h4>

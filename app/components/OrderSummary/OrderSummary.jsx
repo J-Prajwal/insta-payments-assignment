@@ -1,11 +1,14 @@
 import React from "react";
 import Styles from "./OrderSummary.module.css";
 import Loader from "../Loader/Loader";
+import useStore from "@/app/Store/store";
+import { formatIndianNumber } from "@/app/utils";
 
-const OrderSummary = ({ loading, total, discountedTotal }) => {
+const OrderSummary = ({ loading }) => {
+  const cartDetails = useStore((state) => state.cartDetails);
   return (
     <div className={Styles.mainWrapper}>
-      {loading || !total ? (
+      {loading || !cartDetails?.total ? (
         <div className={Styles.loaderWrapper}>
           <Loader />
         </div>
@@ -16,16 +19,12 @@ const OrderSummary = ({ loading, total, discountedTotal }) => {
             <table className={Styles.table}>
               <tr className={Styles.tableRow}>
                 <td className={Styles.tableColumnLeft}>order amount</td>
-                <td className={Styles.tableColumnRight}>₹ {total}</td>
-              </tr>
-              <tr className={Styles.tableRow}>
-                <td className={Styles.tableColumnLeft}>delivery fees</td>
-                <td className={Styles.tableColumnRight}>₹ 80.50</td>
+                <td className={Styles.tableColumnRight}>₹ {formatIndianNumber(cartDetails?.total)}</td>
               </tr>
               <tr className={Styles.tableRow}>
                 <td className={Styles.tableColumnLeft}>Discount</td>
                 <td className={Styles.tableColumnRight}>
-                  ₹ -{Math.round(total - discountedTotal)}
+                  ₹ -{formatIndianNumber(Math.round(cartDetails?.total - cartDetails?.discountedTotal))}
                 </td>
               </tr>
             </table>
@@ -35,7 +34,7 @@ const OrderSummary = ({ loading, total, discountedTotal }) => {
               <div className={Styles.totalKey}>Total</div>
               <div className={Styles.infoMessage}>(Exclusize of all taxes)</div>
             </div>
-            <div className={Styles.totalValue}>₹ {discountedTotal}</div>
+            <div className={Styles.totalValue}>₹ {formatIndianNumber(cartDetails?.discountedTotal)}</div>
           </div>
         </>
       )}

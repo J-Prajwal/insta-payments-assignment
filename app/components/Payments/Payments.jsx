@@ -17,9 +17,6 @@ const Payments = ({ nextStep }) => {
   const [activeSection, setActiveSection] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [upiId, setUpiId] = useState("");
-  const [cardDetails, setCardDetails] = useState({
-    nameOnCard: "",
-  });
   const [validationError, setValidationError] = useState({
     upiId: false,
   });
@@ -39,7 +36,9 @@ const Payments = ({ nextStep }) => {
       setPaymentDetails({ paymentMethod, cardDetails: formData });
       nextStep();
     } else {
-      // todo...
+      setPaymentMethod(PAYMENT_METHOD.COD);
+      setPaymentDetails({paymentMethod});
+      nextStep();
     }
   };
 
@@ -52,6 +51,7 @@ const Payments = ({ nextStep }) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
+            color: '#000'
           }}
         >
           <label htmlFor="vpa">Virtual Payment Address</label>
@@ -86,7 +86,7 @@ const Payments = ({ nextStep }) => {
     },
     {
       name: "QR Code",
-      content: <div>QR Code Payment Section (Coming Soon)</div>,
+      content: <div style={{color: "#000"}}>QR Code Payment Section (Coming Soon)</div>,
     },
   ];
 
@@ -161,6 +161,12 @@ const Payments = ({ nextStep }) => {
           <p className={styles.codDescription}>
             Pay directly to the driver upon receiving your order.
           </p>
+          <button
+            className={styles.button}
+            onClick={() => handlePaymentMethods(PAYMENT_METHOD.COD)}
+          >
+            Confirm Cash On Delivery 🔒
+          </button>
         </div>
       </div>
     </div>

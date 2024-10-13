@@ -10,8 +10,10 @@ import OrderSummary from "../OrderSummary/OrderSummary";
 import DiscountTag from "../DiscountTag/DiscountTag";
 import ProductsList from "../ProductsList/ProductsList";
 import { formatIndianNumber } from "@/app/utils";
+import useStore from "@/app/Store/store";
 
-const Checkout = ({ cartDetails, loading }) => {
+const Checkout = ({ loading }) => {
+  const cartDetails = useStore((state) => state.cartDetails);
   const steps = ["Bag", "Delivery", "Payment", "Order Complete"];
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -34,12 +36,7 @@ const Checkout = ({ cartDetails, loading }) => {
         return <BagItems />;
       case 1:
         return (
-          <Delivery
-            totalProducts={cartDetails?.totalProducts || 0}
-            total={cartDetails?.total || 0}
-            discountedTotal={cartDetails?.discountedTotal}
-            nextStep={nextStep}
-          />
+          <Delivery nextStep={nextStep} />
         );
       case 2:
         return <Payments nextStep={nextStep} />;
@@ -83,12 +80,7 @@ const Checkout = ({ cartDetails, loading }) => {
       <div className={styles.content}>
         {renderContent()}
         <div className={styles.rightSection}>
-          <OrderSummary
-            totalProducts={cartDetails?.totalProducts}
-            total={cartDetails?.total}
-            discountedTotal={cartDetails?.discountedTotal}
-            loading={loading}
-          />
+          <OrderSummary loading={loading} />
           <DiscountTag />
           <ProductsList loading={loading} products={cartDetails?.products} />
         </div>

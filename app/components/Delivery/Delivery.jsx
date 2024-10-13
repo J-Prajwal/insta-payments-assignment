@@ -4,7 +4,6 @@ import useStore from "@/app/Store/store";
 
 const Delivery = ({ nextStep }) => {
   const setDeliveryDetails = useStore((state) => state.setDeliveryDetails);
-  const deliveryDetails = useStore((state) => state.deliveryDetails);
 
   const [form, setForm] = useState({
     firstName: "",
@@ -69,7 +68,6 @@ const Delivery = ({ nextStep }) => {
     if (validateForm()) {
       setDeliveryDetails(form);
       nextStep();
-      console.log("Form submitted successfully", form);
     }
   };
   return (

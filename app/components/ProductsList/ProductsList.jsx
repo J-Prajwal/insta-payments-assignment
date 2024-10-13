@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./ProductsList.module.css";
 import Image from "next/image";
 import { formatIndianNumber } from "@/app/utils";
+import useStore from "@/app/Store/store";
 
-const ProductsList = ({ products }) => {
+const ProductsList = () => {
+  const products = useStore((state) => state.cartDetails.products);
   return (
     <>
       {products &&

@@ -3,8 +3,7 @@ import Styles from "./CardsForm.module.css";
 import { PAYMENT_METHOD } from "@/app/constants";
 import useStore from "@/app/Store/store";
 
-const CardsForm = ({ handlePaymentMethods, setPaymentMethod, nextStep }) => {
-  const setPaymentDetails = useStore((state) => state.setPaymentDetails);
+const CardsForm = ({ handlePaymentMethods, setPaymentMethod}) => {
   const [form, setForm] = useState({
     nameOnCard: "",
     cardNumber: "",
@@ -57,7 +56,6 @@ const CardsForm = ({ handlePaymentMethods, setPaymentMethod, nextStep }) => {
     e.preventDefault();
     if (validateForm()) {
       handlePaymentMethods(PAYMENT_METHOD.CARD, form);
-      console.log("Form submitted successfully", form);
     }
   };
   return (

@@ -6,9 +6,11 @@ import Moon from "../../assets/icons/moon-stars-svgrepo-com.svg";
 import CartLight from "../../assets/icons/cart-light.svg";
 import CartDark from "../../assets/icons/cart-dark.svg";
 import { ThemeContext } from "@/app/context/themeContext";
+import useStore from "@/app/Store/store";
 
-const Navbar = ({ heading = "checkout", cartCount }) => {
+const Navbar = ({ heading = "checkout" }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const cartDetails = useStore((state) => state.cartDetails)
   return (
     <div className={styles.navbarContainer}>
       <div className={styles.navbarHeading}>{heading}</div>
@@ -31,7 +33,7 @@ const Navbar = ({ heading = "checkout", cartCount }) => {
             alt="shopping cart"
             style={{ cursor: "pointer" }}
           />
-          <div className={styles.cartCountBlob}>{cartCount}</div>
+          <div className={styles.cartCountBlob}>{cartDetails?.totalProducts || 0}</div>
         </div>
       </div>
     </div>

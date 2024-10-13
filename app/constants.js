@@ -1,0 +1,7 @@
+const PAYMENT_METHOD = {};
+
+PAYMENT_METHOD.UPI = "upi";
+PAYMENT_METHOD.CARD = "card";
+PAYMENT_METHOD.COD = "cod";
+
+export { PAYMENT_METHOD };

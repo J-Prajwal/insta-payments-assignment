@@ -1,0 +1,53 @@
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.greetingSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heading {
+  margin: 5px 0;
+}
+
+.userName {
+  margin: 0;
+  padding: 0;
+}
+
+.greetMessage {
+  font-size: 14px;
+}
+
+.yourOrderSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.orderDetailsCardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.orderDetailsCard {
+  border: 1px solid #000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.875rem;
+
+  width: 400px;
+}
+
+.orderDetailsContent {
+  margin: 0.2rem 0;
+  padding: 0;
+}

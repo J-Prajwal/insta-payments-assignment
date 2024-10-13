@@ -1,0 +1,36 @@
+.tagWrapper {
+    background-color: #F0FAF4;
+    border: 1px solid #93D49E;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 8px;
+    color: #679C6D;
+    box-sizing: border-box;
+  }
+  
+  .discountApplied {
+    font-weight: 700;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .tagWrapper {
+      padding: 8px;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tagWrapper {
+      padding: 6px;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      justify-content: center;
+      align-items:center;
+    }
+  }
+  

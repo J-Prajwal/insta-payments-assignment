@@ -1,0 +1,64 @@
+/* PaymentOptions.module.css */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.infoBox {
+  background-color: #f0f4ff;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-left: 5px solid #007bff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.accordion {
+  border: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.accordionHeader {
+  padding: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordionContent {
+  padding: 16px;
+  display: none;
+  background-color: #f9f9f9;
+}
+
+.accordionContent.show {
+  display: block;
+}
+
+.upiIcon {
+  width: 50px;
+}
+
+.cardIcons {
+  display: flex;
+  gap: 10px;
+}
+
+.cardIcons img {
+  width: 40px;
+}
+
+.codDescription {
+  font-size: 14px;
+  color: #777;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

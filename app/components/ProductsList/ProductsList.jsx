@@ -9,7 +9,7 @@ const ProductsList = ({ products }) => {
       {products &&
         products.length > 0 &&
         products.map((el, i) => (
-          <div className={styles.productCard}>
+          <div key={i} className={styles.productCard}>
             <div className={styles.imageContainer}>
               <Image
                 src={el.thumbnail}

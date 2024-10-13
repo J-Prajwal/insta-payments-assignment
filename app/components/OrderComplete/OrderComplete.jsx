@@ -21,7 +21,7 @@ const OrderComplete = () => {
           we recived your order and it is in process
         </div>
         <div className={styles.greetMessage}>
-          We'll send you an order confirmation notification on your Mobile{" "}
+          {"We'll"} send you an order confirmation notification on your Mobile{" "}
           {deliveryDetails?.mobileNumber} within 5 mintues
         </div>
       </div>

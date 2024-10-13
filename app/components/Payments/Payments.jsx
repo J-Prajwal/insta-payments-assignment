@@ -98,7 +98,7 @@ const Payments = ({ nextStep }) => {
     <div className={styles.container}>
       {/* Info box */}
       <div className={styles.infoBox}>
-        <Image src={FingerPrint} height={15} width={15} />
+        <Image src={FingerPrint} height={15} width={15} alt="info-icon" />
         <div>
           Payments are SSL encrypted so that your credit card and payment
           details stay safe.
@@ -112,7 +112,7 @@ const Payments = ({ nextStep }) => {
           onClick={() => toggleSection("upi")}
         >
           <span>UPI</span>
-          <Image src={Upi} height={20} width={20} className={styles.upiIcon} />
+          <Image src={Upi} height={20} width={20} className={styles.upiIcon} alt="upi icon" />
         </div>
         <div
           className={`${styles.accordionContent} ${

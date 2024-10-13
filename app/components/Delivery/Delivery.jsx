@@ -221,9 +221,9 @@ const Delivery = ({ nextStep }) => {
             )}
           </div>
 
-          {/* Pay Now Button */}
+          {/* Proceed Button */}
           <button type="submit" className={Styles.button}>
-            Pay Now
+            Proceed
           </button>
         </form>
       </div>
